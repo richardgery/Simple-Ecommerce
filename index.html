@@ -27,23 +27,28 @@
   <body>
     <!-- main tag specifies the main content of a document -->
     <main>
-      <div class="cart-modal-overlay">
-        <div class="cart-modal">
-          <i id="close-btn" class="fas fa-times"></i>
-          <h1 class="cart-is-empty">Cart is empty</h1>
-
-          <div class="product-rows"></div>
-          <div class="total">
-            <h1 class="cart-total">TOTAL</h1>
-            <span class="total-price">$0</span>
+      <!-- start parent element of cart icon with notif content -->
+      <div class="cart-notif-content">
+        <!-- child element of cart notif content -->
+        <div class="cart-notif">
+          <!-- icon xmark -->
+          <i class="fa-solid fa-xmark"></i>
+          <!-- each products in row section -->
+          <div class="products-row"></div>
+          <!-- purhase section -->
+          <div class="purchase">
+            <h1 class="cart-purchase">TOTAL</h1>
+            <!-- span tag used to mark up a part of a text, or a part of a document -->
+            <span class="purchase-price">$0</span>
             <button class="purchase-btn">PURCHASE</button>
           </div>
         </div>
       </div>
-
-      <!--   end of cart modal -->
+      <!--   end parent element of cart icon with notif -->
       <div class="cart-btn">
-        <i id="cart" class="fas fa-shopping-cart"></i>
+        <!-- icon cart shopping -->
+        <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+        <!-- span tag for quantity products -->
         <span class="cart-quantity">0</span>
       </div>
       <!--  products  -->
