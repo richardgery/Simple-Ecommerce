@@ -1,19 +1,32 @@
+<!-- 
+  basic boilerplate HTML 5 template as a starter for any web dev project
+ -->
+<!-- doctype declaration tells what version of HTML page is written in  -->
 <!DOCTYPE html>
+<!-- HTML root element represent top-level element of an HTML document and attribute lang for accesibility users -->
 <html lang="en">
+  <!-- head tag contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets -->
   <head>
+    <!-- charset meta tag declares the document's character encoding like UTF-8 can support many languages and can accommodate pages and forms in any mixture of those languages -->
     <meta charset="utf-8" />
+    <!-- viewport meta tag renders the width of the page to the width of the device's screen size -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- title tag shown in the browser's title bar -->
     <title>Shopping Cart</title>
+    <!-- library files font awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <!-- Style CSS -->
+    <!-- CSS stylesheet for Style -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- main tag specifies the main content of a document -->
     <main>
-      <!-- Start DEMO HTML (Use the following code into your project)-->
       <div class="cart-modal-overlay">
         <div class="cart-modal">
           <i id="close-btn" class="fas fa-times"></i>
@@ -63,6 +76,7 @@
       </div>
       <!-- END EDMO HTML (Happy Coding!)-->
     </main>
+    <!-- Script tags for Interactive Web -->
     <script src="./js/ShoppingCart.js"></script>
   </body>
 </html>
