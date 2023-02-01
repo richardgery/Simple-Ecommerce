@@ -39,7 +39,7 @@ function addCartClicked(event) {
   var price = cartItem.getElementsByClassName("price")[0].innerText;
 
   addItemToCart(price, imageSrc);
-  updateCartPrice();
+  // updateCartPrice();
 }
 
 function addItemToCart(price, imageSrc) {
@@ -71,7 +71,7 @@ function addItemToCart(price, imageSrc) {
   productRow
     .getElementsByClassName("product-quantity")[0]
     .addEventListener("change", changeQuantity);
-  updateCartPrice();
+  // updateCartPrice();
 }
 
 // Remove products from cart
@@ -84,24 +84,24 @@ for (var i = 0; i < removeBtn.length; i++) {
 function removeItem(event) {
   btnClicked = event.target;
   btnClicked.parentElement.remove();
-  updateCartPrice();
+  // updateCartPrice();
 }
 
 // update quantity input
-// var quantityInput = document.getElementsByClassName('product-quantity')[0];
+var quantityInput = document.getElementsByClassName("product-quantity");
 
-// for (var i = 0; i < quantityInput; i++){
-//   input = quantityInput[i]
-//   input.addEventListener('change', changeQuantity)
-// }
+for (var i = 0; i < quantityInput.length; i++) {
+  input = quantityInput[i];
+  input.addEventListener("change", changeQuantity);
+}
 
-// function changeQuantity(event) {
-//   var input = event.target
-//   if (isNaN(input.value) || input.value <= 0){
-//     input.value = 1
-//   }
-//   updateCartPrice()
-// }
+function changeQuantity(event) {
+  var input = event.target;
+  if (input.value <= 0) {
+    input.value = 1;
+  }
+  // updateCartPrice()
+}
 // end of update quantity input
 
 // update total price
