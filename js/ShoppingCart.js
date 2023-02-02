@@ -27,21 +27,6 @@ cartNotifContent.addEventListener("click", (event) => {
 const addCart = document.getElementsByClassName("add-cart");
 const productRow = document.getElementsByClassName("product-row");
 
-for (var i = 0; i < addCart.length; i++) {
-  button = addCart[i];
-  button.addEventListener("click", addCartClicked);
-}
-
-const addCartClicked = (event) => {
-  button = event.target;
-  var cartItem = button.parentElement;
-  var imageSrc = cartItem.getElementsByClassName("image")[0].src;
-  var price = cartItem.getElementsByClassName("price")[0].innerText;
-
-  addItemToCart(price, imageSrc);
-  // updateCartPrice();
-};
-
 const addItemToCart = (price, imageSrc) => {
   var productRow = document.createElement("div");
   productRow.classList.add("product-row");
@@ -71,37 +56,52 @@ const addItemToCart = (price, imageSrc) => {
   productRow
     .getElementsByClassName("product-quantity")[0]
     .addEventListener("change", changeQuantity);
-  // updateCartPrice();
+  updateCartPrice();
 };
+
+const addCartClicked = (event) => {
+  button = event.target;
+  var cartItem = button.parentElement;
+  var imageSrc = cartItem.getElementsByClassName("image")[0].src;
+  var price = cartItem.getElementsByClassName("price")[0].innerText;
+
+  addItemToCart(price, imageSrc);
+  updateCartPrice();
+};
+
+for (var i = 0; i < addCart.length; i++) {
+  button = addCart[i];
+  button.addEventListener("click", addCartClicked);
+}
 
 // Remove products from cart
 const removeBtn = document.getElementsByClassName("remove-btn");
+const removeItem = (event) => {
+  btnClicked = event.target;
+  btnClicked.parentElement.parentElement.remove();
+  updateCartPrice();
+};
+
 for (var i = 0; i < removeBtn.length; i++) {
   button = removeBtn[i];
   button.addEventListener("click", removeItem);
 }
 
-const removeItem = (event) => {
-  btnClicked = event.target;
-  btnClicked.parentElement.remove();
-  // updateCartPrice();
-};
-
 // update quantity input
 var quantityInput = document.getElementsByClassName("product-quantity");
-
-for (var i = 0; i < quantityInput.length; i++) {
-  input = quantityInput[i];
-  input.addEventListener("change", changeQuantity);
-}
 
 const changeQuantity = (event) => {
   var input = event.target;
   if (input.value <= 0) {
     input.value = 1;
   }
-  // updateCartPrice()
+  updateCartPrice();
 };
+
+for (var i = 0; i < quantityInput.length; i++) {
+  input = quantityInput[i];
+  input.addEventListener("change", changeQuantity);
+}
 
 // update total price
 const updateCartPrice = () => {
@@ -114,11 +114,9 @@ const updateCartPrice = () => {
     var quantity = quantityElement.value;
     total = total + price * quantity;
   }
-  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-
+  document.getElementsByClassName("purchase-price")[0].innerText = "$" + total;
   document.getElementsByClassName("cart-quantity")[0].textContent = i /= 2;
 };
-// end of update total price
 
 // purchase items
 // const purchaseBtn = document.querySelector('.purchase-btn');
