@@ -32,7 +32,7 @@ for (var i = 0; i < addCart.length; i++) {
   button.addEventListener("click", addCartClicked);
 }
 
-function addCartClicked(event) {
+const addCartClicked = (event) => {
   button = event.target;
   var cartItem = button.parentElement;
   var imageSrc = cartItem.getElementsByClassName("image")[0].src;
@@ -40,9 +40,9 @@ function addCartClicked(event) {
 
   addItemToCart(price, imageSrc);
   // updateCartPrice();
-}
+};
 
-function addItemToCart(price, imageSrc) {
+const addItemToCart = (price, imageSrc) => {
   var productRow = document.createElement("div");
   productRow.classList.add("product-row");
   var productsRow = document.getElementsByClassName("products-row")[0];
@@ -72,7 +72,7 @@ function addItemToCart(price, imageSrc) {
     .getElementsByClassName("product-quantity")[0]
     .addEventListener("change", changeQuantity);
   // updateCartPrice();
-}
+};
 
 // Remove products from cart
 const removeBtn = document.getElementsByClassName("remove-btn");
@@ -81,11 +81,11 @@ for (var i = 0; i < removeBtn.length; i++) {
   button.addEventListener("click", removeItem);
 }
 
-function removeItem(event) {
+const removeItem = (event) => {
   btnClicked = event.target;
   btnClicked.parentElement.remove();
   // updateCartPrice();
-}
+};
 
 // update quantity input
 var quantityInput = document.getElementsByClassName("product-quantity");
@@ -95,31 +95,29 @@ for (var i = 0; i < quantityInput.length; i++) {
   input.addEventListener("change", changeQuantity);
 }
 
-function changeQuantity(event) {
+const changeQuantity = (event) => {
   var input = event.target;
   if (input.value <= 0) {
     input.value = 1;
   }
   // updateCartPrice()
-}
-// end of update quantity input
+};
 
 // update total price
-// function updateCartPrice() {
-//   var total = 0
-//   for (var i = 0; i < productRow.length; i += 2) {
-//     cartRow = productRow[i]
-//   var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-//   var quantityElement = cartRow.getElementsByClassName('product-quantity')[0]
-//   var price = parseFloat(priceElement.innerText.replace('$', ''))
-//   var quantity = quantityElement.value
-//   total = total + (price * quantity )
+const updateCartPrice = () => {
+  var total = 0;
+  for (var i = 0; i < productRow.length; i += 2) {
+    cartRow = productRow[i];
+    var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+    var quantityElement = cartRow.getElementsByClassName("product-quantity")[0];
+    var price = parseFloat(priceElement.innerText.replace("$", ""));
+    var quantity = quantityElement.value;
+    total = total + price * quantity;
+  }
+  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
 
-//   }
-//   document.getElementsByClassName('total-price')[0].innerText =  '$' + total
-
-// document.getElementsByClassName('cart-quantity')[0].textContent = i /= 2
-// }
+  document.getElementsByClassName("cart-quantity")[0].textContent = i /= 2;
+};
 // end of update total price
 
 // purchase items
