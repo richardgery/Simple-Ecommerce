@@ -1,68 +1,94 @@
+<!-- 
+  basic boilerplate HTML 5 template as a starter for any web dev project
+ -->
+<!-- doctype declaration tells what version of HTML page is written in  -->
 <!DOCTYPE html>
+<!-- HTML root element represent top-level element of an HTML document and attribute lang for accesibility users -->
 <html lang="en">
+  <!-- head tag contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets -->
   <head>
+    <!-- charset meta tag declares the document's character encoding like UTF-8 can support many languages and can accommodate pages and forms in any mixture of those languages -->
     <meta charset="utf-8" />
+    <!-- viewport meta tag renders the width of the page to the width of the device's screen size -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- title tag shown in the browser's title bar -->
     <title>Shopping Cart</title>
+    <!-- library files font awesome -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <!-- Style CSS -->
+    <!-- CSS stylesheet for Style -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- main tag specifies the main content of a document -->
     <main>
-      <!-- Start DEMO HTML (Use the following code into your project)-->
-      <div class="cart-modal-overlay">
-        <div class="cart-modal">
-          <i id="close-btn" class="fas fa-times"></i>
-          <h1 class="cart-is-empty">Cart is empty</h1>
-
-          <div class="product-rows"></div>
-          <div class="total">
-            <h1 class="cart-total">TOTAL</h1>
-            <span class="total-price">$0</span>
+      <!-- start parent element of cart icon with notif content -->
+      <div class="cart-notif-content">
+        <!-- child element of cart notif content -->
+        <div class="cart-notif">
+          <!-- icon xmark -->
+          <i id="btn-close" class="fa-solid fa-xmark"></i>
+          <!-- each products in row section -->
+          <div class="products-row"></div>
+          <!-- purhase section -->
+          <div class="purchase">
+            <h1 class="cart-purchase">TOTAL</h1>
+            <!-- span tag used to mark up a part of a text, or a part of a document -->
+            <span class="purchase-price">$0</span>
+            <!-- button tag used to renders alert success after click purchase by user -->
             <button class="purchase-btn">PURCHASE</button>
           </div>
         </div>
       </div>
-
-      <!--   end of cart modal -->
+      <!--   end parent element of cart icon with notif -->
       <div class="cart-btn">
-        <i id="cart" class="fas fa-shopping-cart"></i>
+        <!-- icon cart shopping -->
+        <i id="cart-icn" class="fa-sharp fa-solid fa-cart-shopping"></i>
+        <!-- span tag for quantity products -->
         <span class="cart-quantity">0</span>
       </div>
-      <!--  products  -->
-      <div class="items-container">
-        <div class="card-1 card">
-          <img class="product-image" src="./img/image-1.webp" alt="" />
-          <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1395</span>
+
+      <!--  this tag renders each products  -->
+      <div class="container-products">
+        <!-- this tag renders child product 1 -->
+        <div class="product-1 card">
+          <img class="image" src="./img/image-1.webp" alt="Anorak Jacket" />
+          <!-- this tag used to render adding product with appear notif product through cart icon  -->
+          <button class="add-cart">Add to cart</button>
+          <span class="price">$1295</span>
         </div>
-        <div class="card-2 card">
-          <img class="product-image" src="./img/image-2.webp" alt="" />
-          <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1175</span>
+        <!-- this tag render child product 2 -->
+        <div class="product-2 card">
+          <img class="image" src="./img/image-2.webp" alt="Bomber Jacket" />
+          <button class="add-cart">Add to cart</button>
+          <span class="price">$1075</span>
         </div>
-        <div class="card-3 card">
-          <img class="product-image" src="./img/image-3.webp" alt="" />
-          <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1150</span>
+        <!-- this tag render child product 3 -->
+        <div class="product-3 card">
+          <img class="image" src="./img/image-3.webp" alt="Cagoule Jacket" />
+          <button class="add-cart">Add to cart</button>
+          <span class="price">$1050</span>
         </div>
-        <div class="card-4 card">
-          <img class="product-image" src="./img/image-4.webp" alt="" />
-          <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1575</span>
+        <!-- this tag render child product 4 -->
+        <div class="product-4 card">
+          <img class="image" src="./img/image-4.webp" alt="Varsity Jacket" />
+          <button class="add-cart">Add to cart</button>
+          <span class="price">$1475</span>
         </div>
-        <div class="card-5 card">
-          <img class="product-image" src="./img/image-5.webp" alt="" />
-          <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1230</span>
+        <!-- this tag render child product 5 -->
+        <div class="product-5 card">
+          <img class="image" src="./img/image-5.webp" alt="Puffer Jacket" />
+          <button class="add-cart">Add to cart</button>
+          <span class="price">$1130</span>
         </div>
       </div>
-      <!-- END EDMO HTML (Happy Coding!)-->
     </main>
+    <!-- Script tags for Interactive Web -->
     <script src="./js/ShoppingCart.js"></script>
   </body>
 </html>
